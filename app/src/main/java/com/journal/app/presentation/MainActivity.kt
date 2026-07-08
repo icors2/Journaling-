@@ -85,7 +85,7 @@ class MainActivity : ComponentActivity() {
         val account = GoogleSignIn.getLastSignedInAccount(this)
         account?.email?.let { email ->
             app.repository.setSignedInAccountEmail(email)
-            journalViewModel.onSignedIn(email)
+            journalViewModel.onSignedIn(email, showMessage = false)
         }
     }
 

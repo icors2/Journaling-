@@ -50,11 +50,13 @@ class JournalViewModel(
     private val _statusMessage = MutableStateFlow<String?>(null)
     val statusMessage: StateFlow<String?> = _statusMessage.asStateFlow()
 
-    fun onSignedIn(email: String) {
+    fun onSignedIn(email: String, showMessage: Boolean = true) {
         repository.setSignedInAccountEmail(email)
         _signedInEmail.value = email
         repository.scheduleBackup(forceFullSync = true)
-        _statusMessage.value = "Signed in. Cloud backup enabled."
+        if (showMessage) {
+            _statusMessage.value = "Signed in. Cloud backup enabled."
+        }
     }
 
     fun onSignOut() {
