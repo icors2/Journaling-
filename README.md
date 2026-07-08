@@ -73,6 +73,14 @@ app/src/main/java/com/journal/app/
 
 Install the generated APK on a device or emulator, sign in with Google, and start journaling.
 
+### Continuous Integration
+
+GitHub Actions builds the debug APK on every push to `main` and on pull requests targeting `main`. Workflow: [`.github/workflows/android-ci.yml`](.github/workflows/android-ci.yml).
+
+- **Actions tab** — view build status and logs
+- **Pull requests** — CI checks appear on the PR checks panel
+- **Artifacts** — successful runs upload `app-debug-apk` (retained 14 days); download from the workflow run summary
+
 ## Cloud Backup Layout
 
 All files are stored in a Drive folder named **My Android Cloud Journal**:
